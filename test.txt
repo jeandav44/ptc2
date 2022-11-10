@@ -1,0 +1,16 @@
+5
+
+Hell minusculas
+dont worry if there is a hell below we are all going to go
+
+Resistire full_interv
+Cuando pierda todas las partidas / Cuando duerma con la soledad / Cuando se me cierren las salidas / Y la noche no me deje en paz.
+
+Qualsevol_nit full_interv
+Fa una nit clara i tranquila, hi ha la lluna que fa llum / Els convidats van arribant i van omplint tota la casa / De colors i de perfums.
+
+DNA_string_1 base_adn
+ATGGCATTAATGGCATTAATGGCATTA
+
+DNA_string_2 base_adn
+CATTAATGGCATTACATTAATGGCATTA
