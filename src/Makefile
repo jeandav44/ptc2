@@ -8,7 +8,7 @@ program.exe: program.o CjMensajes.o Mensaje.o
 	g++ -o program.exe *.o
 
 #CjAlfabetos.o: CjAlfabetos.cc CjAlfabetos.hh
-#		g++ - CjAlfabetos.cc $(OPCIONS)
+#		g++ -c CjAlfabetos.cc $(OPCIONS)
 
 CjMensajes.o: CjMensajes.cc CjMensajes.hh
 		g++ -c CjMensajes.cc $(OPCIONS)

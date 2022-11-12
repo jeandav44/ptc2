@@ -3,7 +3,9 @@
 
 #include <string>
 #include <map>
+#include <iterator>
 #include <iostream>
+#include <limits>
 #include "Mensaje.hh"
 
 using namespace std;
@@ -27,7 +29,6 @@ public:
     void leer();
 
     void escribir();
-
 
 };
 #endif
