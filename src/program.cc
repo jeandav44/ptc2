@@ -1,11 +1,15 @@
 #include <iostream>
 #include <string>
 #include "CjMensajes.hh"
+#include "CjAlfabetos.hh"
 #include "Mensaje.hh"
 
 using namespace std;
 
 int main() {
+    CjAlfabetos ca;
+    ca.leer();
+
     CjMensajes cm;
     cm.leer();
 
@@ -13,9 +17,14 @@ int main() {
     cout << "dime tu operacion" << endl;
     cin >> op;
     while (op != "fin") {
-        if(op == "tet") cm.escribir();
-        else cout << op << endl;
+        cout << '#' << op << ' ';
+        if( op == "nuevo_mensaje" or op == "nm"){
+            cout << "TODO" << endl;
+        }
+        else if(op == "listar_mensajes" or op == "lm") cm.escribir();
+        else if(op == "listar_alfabetos" or op == "la") ca.escribir();
         cin >> op;
     }
-    return 0;
+
+    exit(0);
 }

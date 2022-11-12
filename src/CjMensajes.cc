@@ -18,15 +18,15 @@ void CjMensajes::leer() {
 
 }
 
-
 void CjMensajes::escribir() {
     auto itm = mmen.begin();
+    int i = 1;
+    cout << endl;
     while (itm != mmen.end()) {
-        cout << itm->first;
+        cout << i << ". ";
+        cout << itm->first << endl;
         itm->second.escribir();
-        cout << endl;
+        ++i;
         ++itm;
     }
-
-
 }

@@ -11,6 +11,6 @@ Mensaje::Mensaje(string ida, string texto) {
 
 void Mensaje::escribir() {
 
-    cout <<' '<< ida << endl;
+    cout << ida << endl;
     cout << texto << endl;
 }

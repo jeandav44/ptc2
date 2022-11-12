@@ -4,11 +4,11 @@ all: program.exe
 #program.exe: program.o CjAlfabetos.o CjMensajes.o Alfabeto.o Mensaje.o
 #	g++ -o program.exe *.o
 
-program.exe: program.o CjMensajes.o Mensaje.o
+program.exe: program.o CjMensajes.o CjAlfabetos.o Mensaje.o
 	g++ -o program.exe *.o
 
-#CjAlfabetos.o: CjAlfabetos.cc CjAlfabetos.hh
-#		g++ -c CjAlfabetos.cc $(OPCIONS)
+CjAlfabetos.o: CjAlfabetos.cc CjAlfabetos.hh
+		g++ -c CjAlfabetos.cc $(OPCIONS)
 
 CjMensajes.o: CjMensajes.cc CjMensajes.hh
 		g++ -c CjMensajes.cc $(OPCIONS)
