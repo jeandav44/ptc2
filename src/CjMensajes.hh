@@ -2,13 +2,12 @@
 #define CJ_MEN_HH
 
 #include <string>
+#include <vector>
 #include <map>
 #include <iterator>
 #include <iostream>
 #include <limits>
 #include "Mensaje.hh"
-
-using namespace std;
 
 class CjMensajes {
 

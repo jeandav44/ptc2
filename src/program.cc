@@ -1,10 +1,13 @@
 #include <iostream>
+#include <vector>
 #include <string>
 #include "CjMensajes.hh"
 #include "CjAlfabetos.hh"
 #include "Mensaje.hh"
+#include "Alfabeto.hh"
 
 using namespace std;
+
 
 int main() {
     CjAlfabetos ca;
@@ -21,6 +24,7 @@ int main() {
         if( op == "nuevo_mensaje" or op == "nm"){
             cout << "TODO" << endl;
         }
+        else if(op == "nuevo_alfabeto" or op == "na") ca.nuevo_alfabeto();
         else if(op == "listar_mensajes" or op == "lm") cm.escribir();
         else if(op == "listar_alfabetos" or op == "la") ca.escribir();
         cin >> op;

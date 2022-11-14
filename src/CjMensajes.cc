@@ -19,9 +19,9 @@ void CjMensajes::leer() {
 }
 
 void CjMensajes::escribir() {
-    auto itm = mmen.begin();
     int i = 1;
     cout << endl;
+    auto itm = mmen.begin();
     while (itm != mmen.end()) {
         cout << i << ". ";
         cout << itm->first << endl;
