@@ -13,7 +13,7 @@ class CjMensajes {
 
 private:
     map<string,Mensaje> mmen;
-    map<string,Mensaje>::iterator it;
+    //map<string,Mensaje>::iterator it2;
 public:
     /* CONSTRUCTORES */
     CjMensajes();
