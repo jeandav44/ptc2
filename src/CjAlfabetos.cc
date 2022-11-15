@@ -24,12 +24,15 @@ void CjAlfabetos::leer() {
 void CjAlfabetos::nuevo_alfabeto() {
     string ida, texto;
     cin >> ida;
+    cout << ' ' << ida << endl;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin,texto);
+
     if(buscarId(ida)) {
         cout << "error: el alfabeto ya existe" << endl;
     }
     else {
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        getline(cin,texto);
+
         Alfabeto aux(texto);
         malf.insert(make_pair(ida,texto));
         cout << malf.size() << endl;
@@ -59,23 +62,26 @@ void CjAlfabetos::borrar_alfabeto() {
 
 void CjAlfabetos::incrementaI(string ida) {
     auto ita = malf.find(ida);
-    //std::cout << malf.size() << '\n';
     ita->second.incrementa();
+}
+
+void CjAlfabetos::decrementaI(string ida) {
+    auto ita = malf.find(ida);
+    ita->second.decrementa();
 }
 
 void CjAlfabetos::escribir() {
     int i = 1;
     cout << endl;
-    std::cout << malf.size() << '\n';
     auto ita = malf.begin();
     while (ita != malf.end()) {
         cout << i << ". ";
         cout << ita->first << endl;
-        ita->second.escribir();
+        bool especial = esEspecial(ita->second);
+        ita->second.escribir(especial);
         ++i;
         ++ita;
     }
-    //std::cout << malf.size() << '\n';
 }
 
 bool CjAlfabetos::buscarId(string ida) {
@@ -83,8 +89,13 @@ bool CjAlfabetos::buscarId(string ida) {
     return (ita != malf.end());
 }
 
-/*
-bool CjAlfabetos::esEspecial(){
 
+bool CjAlfabetos::esEspecial(Alfabeto alf){
+    string texto = alf.getTexto();
+    char ini = texto[0];
+    for (int i = 1; i < texto.size(); ++i) {
+        if(texto[i] != ini+1 ) return false;
+        ini = texto[i];
+    }
+    return true;
 }
-*/

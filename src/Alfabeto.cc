@@ -25,13 +25,25 @@ void Alfabeto::iniMat(string texto){
 void Alfabeto::incrementa() {
     nm += 1;
 }
+
+void Alfabeto::decrementa() {
+    nm += -1;
+}
+
 int Alfabeto::getNm() {
     return this->nm;
 }
 
+string Alfabeto::getTexto() {
+    return this->texto;
+}
 
-
-void Alfabeto::escribir() {
-    cout << "todo ";
-    cout << texto << ' ' << nm << " mensajes" << endl;
+void Alfabeto::escribir(bool esp) {
+    if(esp) {
+        cout << "especial " << '[' << texto[0] << ".." << texto.back() << ']';
+    }
+    else {
+        cout << "normal " << '"' << texto << '"';
+    }
+    cout << ' ' << nm << " mensajes" << endl;
 }

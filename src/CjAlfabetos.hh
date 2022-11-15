@@ -27,6 +27,9 @@ public:
     int sizeAct();
     bool buscarId(string ida);
     void incrementaI(string ida);
+    void decrementaI(string ida);
+    bool esEspecial(Alfabeto alf);
+
 
     /*ENTRADA/SALIDA*/
     void leer();

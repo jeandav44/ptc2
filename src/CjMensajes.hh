@@ -23,8 +23,9 @@ public:
 
     /* MODIFICADORES */
     void nuevo_mensaje(CjAlfabetos &ca);
-    void borra_mensaje();
+    void borra_mensaje(CjAlfabetos &ca);
     bool buscarId(string idm);
+    void codificar_sustitucion_guardado(CjAlfabetos &ca);
 
     /* ENTRADA/SALIDA */
 

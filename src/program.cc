@@ -20,13 +20,16 @@ int main() {
     //cout << "dime tu operacion" << endl;
     cin >> op;
     while (op != "fin") {
-        cout << '#' << op << ' ';
+        cout << '#' << op;
         if( op == "nuevo_mensaje" or op == "nm") cm.nuevo_mensaje(ca);
         else if(op == "nuevo_alfabeto" or op == "na") ca.nuevo_alfabeto();
-        else if(op == "borra_mensaje" or op == "bm") cm.borra_mensaje();
+        else if(op == "borra_mensaje" or op == "bm") cm.borra_mensaje(ca);
         else if (op == "borra_alfabeto" or op == "ba") ca.borrar_alfabeto();
         else if(op == "listar_mensajes" or op == "lm") cm.escribir();
         else if(op == "listar_alfabetos" or op == "la") ca.escribir();
+        else if(op == "codificar_sustitucion_guardado" or op == "csg") {
+            cm.codificar_sustitucion_guardado(ca);
+        }
         cin >> op;
     }
     //return 0;

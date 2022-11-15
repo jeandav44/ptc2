@@ -15,3 +15,7 @@ void Mensaje::escribir() {
     cout << ida << endl;
     cout << '"' << texto << '"' <<  endl;
 }
+
+string Mensaje::getAlfa() {
+    return this->ida;
+}

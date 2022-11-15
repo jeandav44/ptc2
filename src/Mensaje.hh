@@ -14,11 +14,10 @@ private:
 public:
     /* CONSTRUCTORES */
     Mensaje();
-
     Mensaje(string ida, string texto);
-
     ~Mensaje();
-
+    /*MODIFICADORES*/
+    string getAlfa();
     /* ENTRADA/SALIDA */
     void escribir();
 };

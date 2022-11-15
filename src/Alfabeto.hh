@@ -26,9 +26,11 @@ public:
     /*MODIFICADORES*/
     void iniMat(string texto);
     void incrementa();
+    void decrementa();
     int getNm();
+    string getTexto();
 
     /* ENTRADA/SALIDA */
-    void escribir();
+    void escribir(bool esp);
 };
 #endif

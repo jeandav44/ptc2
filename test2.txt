@@ -43,3 +43,37 @@ Le contrat d'ouverture d'un livret A prevu a l'article R. 221-1 rappelle les mem
 
 Assembler1 full_interv
 switch_to_pm: / cli / lgdt [gdt_descriptor] / mov eax, cr0 / or eax, 1 / mov cr0,eax / jmp CODE_SEG:init_pm // Let's start with / cli. This instruction basically disables interrupts. We have to do this, because if an interrupt fires while we are in protected mode, but before we have installed the IDT, the CPU will triple fault and reset. The problem is, there is literally no standard C code that emits this instruction, so we are going to have to use inline assembly here. The same applies to lgdt [gdt_descriptor]
+
+listar_alfabetos
+
+listar_mensajes
+
+nuevo_mensaje
+Contrato_frances_2 full_no_interv
+Le contrat d'ouverture d'un livret A prevu a l'article R. 221-1 rappelle les memes exigences ainsi que les sanctions encourues a raison de leur meconnaissance. Il informe egalement le client des modalites selon lesquelles s'effectue la procedure de verification prevue a l'article L. 221-38
+
+nuevo_mensaje
+RNA_string_2 base_arn
+CCGUAAGAUGCCCCGUAAGAUGCC
+
+nm
+RNA_string_2 base_arn
+AAGAUGCCCCGUAAGAUGCCCCGUCGU
+
+nm
+acb acb
+acb
+
+nuevo_alfabeto
+bca
+bca
+
+na
+abc
+abc
+
+borra_mensaje
+DNA_string_2
+
+bm
+DNA_string_2
