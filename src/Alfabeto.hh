@@ -23,6 +23,7 @@ public:
 
     /*MODIFICADORES*/
     void incrementa();
+    int getNm();
 
     /* ENTRADA/SALIDA */
     void escribir();

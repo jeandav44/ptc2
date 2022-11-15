@@ -13,6 +13,10 @@ Alfabeto::Alfabeto(string texto) {
 void Alfabeto::incrementa() {
     nm += 1;
 }
+int Alfabeto::getNm() {
+    return this->nm;
+}
+
 
 
 void Alfabeto::escribir() {

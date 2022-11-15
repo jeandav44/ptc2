@@ -8,6 +8,7 @@
 #include <iostream>
 #include <limits>
 #include "Mensaje.hh"
+#include "CjAlfabetos.hh"
 
 class CjMensajes {
 
@@ -21,11 +22,13 @@ public:
     ~CjMensajes();
 
     /* MODIFICADORES */
-    void nuevo_mensaje();
+    void nuevo_mensaje(CjAlfabetos &ca);
+    void borra_mensaje();
+    bool buscarId(string idm);
 
     /* ENTRADA/SALIDA */
 
-    void leer();
+    void leer(CjAlfabetos &ca);
 
     void escribir();
 

@@ -21,10 +21,14 @@ public:
     CjAlfabetos();
     ~CjAlfabetos();
 
+    /*MODIFICADORES*/
     void nuevo_alfabeto();
+    void borrar_alfabeto();
+    int sizeAct();
     bool buscarId(string ida);
     void incrementaI(string ida);
 
+    /*ENTRADA/SALIDA*/
     void leer();
     void escribir();
 
