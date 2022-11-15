@@ -32,8 +32,8 @@ void CjAlfabetos::nuevo_alfabeto() {
         getline(cin,texto);
         Alfabeto aux(texto);
         malf.insert(make_pair(ida,texto));
-        //cout << malf.size() << endl;
-        cout << "añadido todo size" << endl;
+        cout << malf.size() << endl;
+        //cout << "añadido todo size" << endl;
     }
 }
 
@@ -51,7 +51,7 @@ void CjAlfabetos::borrar_alfabeto() {
         }
         else {
             malf.erase(ita);
-            cout << "TODO:borrar alfabeto" << endl;
+            cout << malf.size() << endl;
         }
     }
 }
