@@ -1,4 +1,4 @@
-OPCIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-uninitialized -Wno-sign-compare -std=c++11 
+OPCIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-uninitialized -Wno-sign-compare -std=c++11
 all: program.exe
 
 program.exe: program.o CjAlfabetos.o Alfabeto.o CjMensajes.o Mensaje.o
