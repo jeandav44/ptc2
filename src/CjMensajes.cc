@@ -27,7 +27,9 @@ void CjMensajes::escribir() {
     while (itm != mmen.end()) {
         cout << i << ". ";
         cout << itm->first << endl;
+        cout << "";
         itm->second.escribir();
+        cout << "";
         ++i;
         ++itm;
     }

@@ -75,9 +75,16 @@ void CjAlfabetos::escribir() {
         ++i;
         ++ita;
     }
-    std::cout << malf.size() << '\n';
+    //std::cout << malf.size() << '\n';
 }
+
 bool CjAlfabetos::buscarId(string ida) {
     auto ita = malf.find(ida);
     return (ita != malf.end());
 }
+
+/*
+bool CjAlfabetos::esEspecial(){
+
+}
+*/

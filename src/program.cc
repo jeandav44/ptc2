@@ -17,7 +17,7 @@ int main() {
     cm.leer(ca);
 
     string op;
-    cout << "dime tu operacion" << endl;
+    //cout << "dime tu operacion" << endl;
     cin >> op;
     while (op != "fin") {
         cout << '#' << op << ' ';

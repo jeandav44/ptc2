@@ -2,6 +2,7 @@
 #define ALFABETO_HH
 
 #include <string>
+#include <vector>
 #include <iostream>
 
 using namespace std;
@@ -11,6 +12,7 @@ class Alfabeto {
 private:
     string texto;
     int nm;
+    vector<string> matrix;
 public:
     /* CONSTRUCTORES */
     Alfabeto();
@@ -22,6 +24,7 @@ public:
 
 
     /*MODIFICADORES*/
+    void iniMat(string texto);
     void incrementa();
     int getNm();
 
