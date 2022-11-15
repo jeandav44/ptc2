@@ -7,6 +7,9 @@ void CjAlfabetos::leer() {
     int na; //numero de alfabetos
     cin >> na;
 
+    map<string,Alfabeto> mp;
+    malf = mp;
+
     for (int i = 0; i < na ; ++i) {
         string ida, texto;
         cin >> ida;
@@ -15,7 +18,7 @@ void CjAlfabetos::leer() {
         Alfabeto aux(texto);
         malf.insert(make_pair(ida,texto));
     }
-    cout << "tamaño inicial malf" << malf.size() << '\n';
+    //cout << "tamaño inicial malf" << malf.size() << '\n';
 }
 
 void CjAlfabetos::nuevo_alfabeto() {
@@ -29,8 +32,8 @@ void CjAlfabetos::nuevo_alfabeto() {
         getline(cin,texto);
         Alfabeto aux(texto);
         malf.insert(make_pair(ida,texto));
-        cout << malf.size() << endl;
-        //cout << "añadido todo size" << endl;
+        //cout << malf.size() << endl;
+        cout << "añadido todo size" << endl;
     }
 }
 
@@ -47,7 +50,6 @@ void CjAlfabetos::borrar_alfabeto() {
             cout << "error: hay mensajes guardados con el alfabeto" << endl;
         }
         else {
-            ita = malf.find(ida);
             malf.erase(ita);
             cout << "TODO:borrar alfabeto" << endl;
         }
@@ -57,12 +59,14 @@ void CjAlfabetos::borrar_alfabeto() {
 
 void CjAlfabetos::incrementaI(string ida) {
     auto ita = malf.find(ida);
+    //std::cout << malf.size() << '\n';
     ita->second.incrementa();
 }
 
 void CjAlfabetos::escribir() {
     int i = 1;
     cout << endl;
+    std::cout << malf.size() << '\n';
     auto ita = malf.begin();
     while (ita != malf.end()) {
         cout << i << ". ";

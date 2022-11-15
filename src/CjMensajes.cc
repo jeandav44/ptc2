@@ -17,6 +17,7 @@ void CjMensajes::leer(CjAlfabetos &ca) {
         ca.incrementaI(ida);
     }
 
+
 }
 
 void CjMensajes::escribir() {
@@ -48,6 +49,7 @@ void CjMensajes::nuevo_mensaje(CjAlfabetos &ca) {
         Mensaje aux(ida,texto);
         mmen.insert(make_pair(idm,aux));
         ca.incrementaI(ida);
+        cout << mmen.size() << endl;
     }
 }
 void CjMensajes::borra_mensaje() {
