@@ -18,6 +18,8 @@ public:
     ~Mensaje();
     /*MODIFICADORES*/
     string getAlfa();
+    string getTexto();
+    void setTexto(string texto);
     /* ENTRADA/SALIDA */
     void escribir();
 };

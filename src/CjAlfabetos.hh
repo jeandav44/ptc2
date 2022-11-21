@@ -29,6 +29,7 @@ public:
     void incrementaI(string ida);
     void decrementaI(string ida);
     bool esEspecial(Alfabeto alf);
+    vector<string> matrixById(string ida);
 
 
     /*ENTRADA/SALIDA*/

@@ -82,4 +82,106 @@ void CjMensajes::codificar_sustitucion_guardado(CjAlfabetos &ca) {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin >> ws ,clave);
     cout << ' ' << idm << ' '<< '"'<< clave <<'"' << endl;
+
+    if(buscarId(idm)) {
+        auto itm = mmen.find(idm);
+
+        string ida = itm->second.getAlfa();
+        string texto = itm->second.getTexto();
+        vector<string> matrix = ca.matrixById(ida);
+        //aho
+        string codificado = codifica(clave,texto,matrix);
+        cout << '"' << codificado << '"' << endl;
+    }
+    else cout << "error: el mensaje no existe" << endl;
+}
+
+void CjMensajes::codificar_sustitucion(CjAlfabetos &ca) {
+    string ida, clave, texto;
+    cin >> ida;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin >> ws ,clave);
+    getline(cin >> ws ,texto);
+
+    cout << ' ' << ida << ' '<< '"'<< clave <<'"' << endl;
+    if(not ca.buscarId(ida)) {
+        cout << "error: el alfabeto no existe" << endl;
+    }
+    else{
+        vector<string> matrix = ca.matrixById(ida);
+        string codificado = codifica(clave,texto,matrix);
+        cout << '"' << codificado << '"' << endl;
+    }
+
+}
+
+void CjMensajes::decodificar_sustitucion(CjAlfabetos &ca) {
+    string ida, clave, texto;
+    cin >> ida;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin >> ws ,clave);
+    getline(cin >> ws ,texto);
+
+    cout << ' ' << ida << ' '<< '"'<< clave <<'"' << endl;
+    if(not ca.buscarId(ida)) {
+        cout << "error: el alfabeto no existe" << endl;
+    }
+    else{
+        vector<string> matrix = ca.matrixById(ida);
+        string decodificado = decodifica(clave,texto,matrix);
+        cout << '"' << decodificado << '"' << endl;
+    }
+
+}
+
+string CjMensajes::decodifica(string clave, string texto,const vector<string> &matrix) {
+    string alarga ="";
+    string deco ="";
+    auto itc = clave.begin();
+    for (int i = 0; i < texto.size(); i++) {
+        if(itc == clave.end() ) itc = clave.begin();
+        alarga.push_back(*itc);
+        ++itc;
+    }
+
+    string matrixF = matrix[0];
+
+    for (int i = 0; i < texto.size(); i++) {
+        int fil = getPos(matrixF,alarga[i]);
+        int ret = getPos(matrix[fil],texto[i]);
+        /*int fil = getPos(matrixF,texto[i]);
+        int ret = getPos(matrix[fil],alarga[i]);*/
+        deco.push_back(matrix[0][ret]);
+    }
+    return deco;
+}
+
+string CjMensajes::codifica(string clave, string texto,const vector<string> &matrix) {
+    string alarga = "";
+    string coded = "";
+    auto itc = clave.begin();
+    for (int i = 0; i < texto.size(); i++) {
+        if(itc == clave.end() ) itc = clave.begin();
+        alarga.push_back(*itc);
+        ++itc;
+    }
+
+    string matrixF = matrix[0];
+
+    for (int i = 0; i < texto.size(); i++) {
+        int fil = getPos(matrixF,alarga[i]);
+        int col = getPos(matrixF,texto[i]);
+        coded.push_back(matrix[fil][col]);
+    }
+
+    return coded;
+}
+
+int CjMensajes::getPos(string matrixF,char c) {
+    int i = 0;
+    while(i < matrixF.size() ) {
+        if(matrixF[i] == c) return i;
+        else ++i;
+    }
+    return i;
 }

@@ -65,6 +65,11 @@ void CjAlfabetos::incrementaI(string ida) {
     ita->second.incrementa();
 }
 
+vector<string> CjAlfabetos::matrixById(string ida) {
+    auto ita = malf.find(ida);
+    return ita->second.getMat();
+}
+
 void CjAlfabetos::decrementaI(string ida) {
     auto ita = malf.find(ida);
     ita->second.decrementa();

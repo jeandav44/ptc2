@@ -14,7 +14,7 @@ void Alfabeto::iniMat(string texto){
     string aux = texto;
     vector<string> vma;
     for (int i = 0; i < texto.size(); ++i) {
-        vma.push_back(texto);
+        vma.push_back(aux);
         char fin = aux[0];
         aux.erase(aux.begin());
         aux.push_back(fin);
@@ -36,6 +36,10 @@ int Alfabeto::getNm() {
 
 string Alfabeto::getTexto() {
     return this->texto;
+}
+
+vector<string> Alfabeto::getMat() {
+    return this->matrix;
 }
 
 void Alfabeto::escribir(bool esp) {

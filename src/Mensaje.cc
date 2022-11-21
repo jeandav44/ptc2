@@ -19,3 +19,11 @@ void Mensaje::escribir() {
 string Mensaje::getAlfa() {
     return this->ida;
 }
+
+string Mensaje::getTexto() {
+    return this->texto;
+}
+
+void Mensaje::setTexto(string texto) {
+    this->texto = texto;
+}

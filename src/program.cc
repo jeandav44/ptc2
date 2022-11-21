@@ -30,6 +30,12 @@ int main() {
         else if(op == "codificar_sustitucion_guardado" or op == "csg") {
             cm.codificar_sustitucion_guardado(ca);
         }
+        else if(op == "codificar_sustitucion" or op == "cs") {
+            cm.codificar_sustitucion(ca);
+        }
+        else if(op == "decodificar_sustitucion" or op == "ds") {
+            cm.decodificar_sustitucion(ca);
+        }
         cin >> op;
     }
     //return 0;

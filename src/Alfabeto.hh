@@ -28,6 +28,7 @@ public:
     void incrementa();
     void decrementa();
     int getNm();
+    vector<string> getMat();
     string getTexto();
 
     /* ENTRADA/SALIDA */
