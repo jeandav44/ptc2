@@ -24,7 +24,7 @@ public:
     /*MODIFICADORES*/
     void nuevo_alfabeto();
     void borrar_alfabeto();
-    int sizeAct();
+    //int sizeAct();
     bool buscarId(string ida);
     void incrementaI(string ida);
     void decrementaI(string ida);
