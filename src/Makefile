@@ -21,7 +21,7 @@ Mensaje.o: Mensaje.cc Mensaje.hh
 
 program.o: program.cc
 		g++ -c program.cc $(OPCIONS)
-		
+
 clean:
 	rm *.o
 	rm *.exe
