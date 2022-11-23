@@ -16,7 +16,7 @@ class CjAlfabetos {
 
 private:
     map<string,Alfabeto> malf;
-    map<string,Alfabeto>::iterator it;
+    //map<string,Alfabeto>::iterator it;
 public:
     CjAlfabetos();
     ~CjAlfabetos();

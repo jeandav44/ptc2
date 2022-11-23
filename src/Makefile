@@ -1,9 +1,12 @@
-OPCIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-uninitialized -Wno-sign-compare -std=c++11
-all: program.exe
+#OPCIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-uninitialized -Wno-sign-compare -std=c++11
+#all: program.exe
+OPCIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-sign-compare -std=c++11
+#all: program.exe
 
 program.exe: program.o CjAlfabetos.o Alfabeto.o CjMensajes.o Mensaje.o
 	g++ -o program.exe *.o
 
+program.o:
 CjAlfabetos.o: CjAlfabetos.cc CjAlfabetos.hh
 		g++ -c CjAlfabetos.cc $(OPCIONS)
 
@@ -16,6 +19,9 @@ Alfabeto.o: Alfabeto.cc Alfabeto.hh
 Mensaje.o: Mensaje.cc Mensaje.hh
 		g++ -c Mensaje.cc $(OPCIONS)
 
+program.o: program.cc
+		g++ -c program.cc $(OPCIONS)
+		
 clean:
 	rm *.o
 	rm *.exe
