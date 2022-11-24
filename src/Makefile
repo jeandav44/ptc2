@@ -24,3 +24,6 @@ program.o: program.cc
 clean:
 	rm *.o
 	rm *.exe
+	rm *.tar
+tar:
+	tar -cvf practica.tar *cc *hh
