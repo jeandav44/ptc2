@@ -18,7 +18,7 @@ void CjAlfabetos::leer() {
         Alfabeto aux(texto);
         malf.insert(make_pair(ida,texto));
     }
-    //cout << "tamaño inicial malf" << malf.size() << '\n';
+
 }
 
 void CjAlfabetos::nuevo_alfabeto() {
@@ -36,7 +36,6 @@ void CjAlfabetos::nuevo_alfabeto() {
         Alfabeto aux(texto);
         malf.insert(make_pair(ida,texto));
         cout << malf.size() << endl;
-        //cout << "añadido todo size" << endl;
     }
 }
 
@@ -59,8 +58,7 @@ void CjAlfabetos::borrar_alfabeto() {
     }
 }
 
-
-void CjAlfabetos::incrementaI(string ida) {
+void CjAlfabetos::incrementaI(const string &ida) {
     auto ita = malf.find(ida);
     ita->second.incrementa();
 }
@@ -70,7 +68,7 @@ vector<string> CjAlfabetos::matrixById(string ida) {
     return ita->second.getMat();
 }
 
-void CjAlfabetos::decrementaI(string ida) {
+void CjAlfabetos::decrementaI(const string &ida) {
     auto ita = malf.find(ida);
     ita->second.decrementa();
 }
@@ -82,25 +80,27 @@ void CjAlfabetos::escribir() {
     while (ita != malf.end()) {
         cout << i << ". ";
         cout << ita->first << endl;
-        bool especial = esEspecial(ita->second);
+        bool especial = true;
+        esEspecial(ita->second.getTexto(),especial);
         ita->second.escribir(especial);
         ++i;
         ++ita;
     }
 }
 
-bool CjAlfabetos::buscarId(string ida) {
+bool CjAlfabetos::buscarId(const string &ida) {
     auto ita = malf.find(ida);
     return (ita != malf.end());
 }
 
 
-bool CjAlfabetos::esEspecial(Alfabeto alf){
-    string texto = alf.getTexto();
+void CjAlfabetos::esEspecial(const string &texto, bool &especial){
     char ini = texto[0];
     for (int i = 1; i < texto.size(); ++i) {
-        if(texto[i] != ini+1 ) return false;
+        if(texto[i] != ini+1 ) {
+            especial = false;
+            return;
+        }
         ini = texto[i];
     }
-    return true;
 }

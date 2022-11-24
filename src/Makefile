@@ -26,4 +26,4 @@ clean:
 	rm *.o
 	rm *.exe
 tar:
-	tar -cvf practica.tar *cc *hh
+	tar -cvf practica.tar *cc *hh Makefile

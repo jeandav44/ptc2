@@ -24,11 +24,12 @@ public:
     /*MODIFICADORES*/
     void nuevo_alfabeto();
     void borrar_alfabeto();
-    //int sizeAct();
-    bool buscarId(string ida);
-    void incrementaI(string ida);
-    void decrementaI(string ida);
-    bool esEspecial(Alfabeto alf);
+
+    bool buscarId(const string &ida);
+    void incrementaI(const string &ida);
+    void decrementaI(const string &ida);
+
+    void esEspecial(const string &texto, bool &especial);
     vector<string> matrixById(string ida);
 
 

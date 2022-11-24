@@ -71,7 +71,7 @@ void CjMensajes::borra_mensaje(CjAlfabetos &ca) {
     }
 }
 
-bool CjMensajes::buscarId(string idm) {
+bool CjMensajes::buscarId(const string &idm) {
     auto itm = mmen.find(idm);
     return (itm != mmen.end());
 }
@@ -175,7 +175,7 @@ void CjMensajes::decodifica(const string &clave, string &texto,const vector<stri
 }
 
 
-int CjMensajes::getPos(string matrixF,char c) {
+int CjMensajes::getPos(const string &matrixF,const char &c) {
     int i = 0;
     while(i < matrixF.size() ) {
         if(matrixF[i] == c) return i;

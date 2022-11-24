@@ -14,7 +14,7 @@ class CjMensajes {
 
 private:
     map<string,Mensaje> mmen;
-    //map<string,Mensaje>::iterator it2;
+
 public:
     /* CONSTRUCTORES */
     CjMensajes();
@@ -24,7 +24,7 @@ public:
     /* MODIFICADORES */
     void nuevo_mensaje(CjAlfabetos &ca);
     void borra_mensaje(CjAlfabetos &ca);
-    bool buscarId(string idm);
+    bool buscarId(const string &idm);
     void codificar_sustitucion_guardado(CjAlfabetos &ca);
     void codificar_sustitucion(CjAlfabetos &ca);
     void decodificar_sustitucion(CjAlfabetos &ca);
@@ -32,7 +32,7 @@ public:
     //FUNCIONES DE OPT
     void codifica(const string &clave, string &texto, const vector<string> &matrix);
     void decodifica(const string &clave, string &texto,const vector<string> &matrix);
-    int getPos(string texto ,char c);
+    int getPos(const string &texto ,const char &c);
 
     /* ENTRADA/SALIDA */
 
