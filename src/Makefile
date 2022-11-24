@@ -22,8 +22,8 @@ program.o: program.cc
 		g++ -c program.cc $(OPCIONS)
 
 clean:
+	rm *.tar
 	rm *.o
 	rm *.exe
-	rm *.tar
 tar:
 	tar -cvf practica.tar *cc *hh

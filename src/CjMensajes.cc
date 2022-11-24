@@ -11,7 +11,7 @@ void CjMensajes::leer(CjAlfabetos &ca) {
         string idm, ida, texto;
         cin >> idm >> ida;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        getline(cin >> ws ,texto);
+        getline(cin, texto);
         Mensaje aux(ida,texto);
         mmen.insert(make_pair(idm,aux));
         ca.incrementaI(ida);
@@ -39,7 +39,7 @@ void CjMensajes::nuevo_mensaje(CjAlfabetos &ca) {
     cout << ' ' << idm << ' '<< ida << endl;
     string texto;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin >> ws ,texto);
+    getline(cin, texto);
 
     if(buscarId(idm)) {
         cout << "error: ya existe un mensaje con ese identificador" << endl;
@@ -80,18 +80,17 @@ void CjMensajes::codificar_sustitucion_guardado(CjAlfabetos &ca) {
     string idm, clave;
     cin >> idm;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin >> ws ,clave);
+    getline(cin, clave);
     cout << ' ' << idm << ' '<< '"'<< clave <<'"' << endl;
 
     if(buscarId(idm)) {
         auto itm = mmen.find(idm);
 
-        string ida = itm->second.getAlfa();
         string texto = itm->second.getTexto();
-        vector<string> matrix = ca.matrixById(ida);
-        //aho
-        string codificado = codifica(clave,texto,matrix);
-        cout << '"' << codificado << '"' << endl;
+        vector<string> matrix = ca.matrixById(itm->second.getAlfa());
+
+        codifica(clave,texto,matrix);
+        cout << '"' << texto << '"' << endl;
     }
     else cout << "error: el mensaje no existe" << endl;
 }
@@ -100,8 +99,10 @@ void CjMensajes::codificar_sustitucion(CjAlfabetos &ca) {
     string ida, clave, texto;
     cin >> ida;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin >> ws ,clave);
-    getline(cin >> ws ,texto);
+
+    getline(cin ,clave);
+    getline(cin ,texto);
+
 
     cout << ' ' << ida << ' '<< '"'<< clave <<'"' << endl;
     if(not ca.buscarId(ida)) {
@@ -109,18 +110,36 @@ void CjMensajes::codificar_sustitucion(CjAlfabetos &ca) {
     }
     else{
         vector<string> matrix = ca.matrixById(ida);
-        string codificado = codifica(clave,texto,matrix);
-        cout << '"' << codificado << '"' << endl;
+        codifica(clave,texto,matrix);
+        cout << '"' << texto << '"' << endl;
     }
 
+}
+void CjMensajes::codifica(const string &clave, string &texto, const vector<string> &matrix) {
+    string alarga;
+    string coded;
+    auto itc = clave.begin();
+    for (int i = 0; i < texto.size(); i++) {
+        if(itc == clave.end() ) itc = clave.begin();
+        alarga.push_back(*itc);
+        ++itc;
+    }
+    string matrixF = matrix[0];
+    for (int i = 0; i < texto.size(); i++) {
+        int fil = getPos(matrixF,alarga[i]);
+        int col = getPos(matrixF,texto[i]);
+        coded.push_back(matrix[fil][col]);
+    }
+
+    texto = coded;
 }
 
 void CjMensajes::decodificar_sustitucion(CjAlfabetos &ca) {
     string ida, clave, texto;
     cin >> ida;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin >> ws ,clave);
-    getline(cin >> ws ,texto);
+    getline(cin, clave);
+    getline(cin, texto);
 
     cout << ' ' << ida << ' '<< '"'<< clave <<'"' << endl;
     if(not ca.buscarId(ida)) {
@@ -128,15 +147,16 @@ void CjMensajes::decodificar_sustitucion(CjAlfabetos &ca) {
     }
     else{
         vector<string> matrix = ca.matrixById(ida);
-        string decodificado = decodifica(clave,texto,matrix);
-        cout << '"' << decodificado << '"' << endl;
+        decodifica(clave,texto,matrix);
+        cout << '"' << texto << '"' << endl;
     }
 
 }
 
-string CjMensajes::decodifica(string clave, string texto,const vector<string> &matrix) {
-    string alarga ="";
-    string deco ="";
+
+void CjMensajes::decodifica(const string &clave, string &texto,const vector<string> &matrix) {
+    string alarga;
+    string deco;
     auto itc = clave.begin();
     for (int i = 0; i < texto.size(); i++) {
         if(itc == clave.end() ) itc = clave.begin();
@@ -149,33 +169,11 @@ string CjMensajes::decodifica(string clave, string texto,const vector<string> &m
     for (int i = 0; i < texto.size(); i++) {
         int fil = getPos(matrixF,alarga[i]);
         int ret = getPos(matrix[fil],texto[i]);
-        /*int fil = getPos(matrixF,texto[i]);
-        int ret = getPos(matrix[fil],alarga[i]);*/
         deco.push_back(matrix[0][ret]);
     }
-    return deco;
+    texto = deco;
 }
 
-string CjMensajes::codifica(string clave, string texto,const vector<string> &matrix) {
-    string alarga = "";
-    string coded = "";
-    auto itc = clave.begin();
-    for (int i = 0; i < texto.size(); i++) {
-        if(itc == clave.end() ) itc = clave.begin();
-        alarga.push_back(*itc);
-        ++itc;
-    }
-
-    string matrixF = matrix[0];
-
-    for (int i = 0; i < texto.size(); i++) {
-        int fil = getPos(matrixF,alarga[i]);
-        int col = getPos(matrixF,texto[i]);
-        coded.push_back(matrix[fil][col]);
-    }
-
-    return coded;
-}
 
 int CjMensajes::getPos(string matrixF,char c) {
     int i = 0;

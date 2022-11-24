@@ -28,8 +28,10 @@ public:
     void codificar_sustitucion_guardado(CjAlfabetos &ca);
     void codificar_sustitucion(CjAlfabetos &ca);
     void decodificar_sustitucion(CjAlfabetos &ca);
-    string codifica(string clave, string texto,const vector<string> &matrix);
-    string decodifica(string clave, string texto,const vector<string> &matrix);
+
+    //FUNCIONES DE OPT
+    void codifica(const string &clave, string &texto, const vector<string> &matrix);
+    void decodifica(const string &clave, string &texto,const vector<string> &matrix);
     int getPos(string texto ,char c);
 
     /* ENTRADA/SALIDA */
