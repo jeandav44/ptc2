@@ -6,7 +6,6 @@ OPCIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-sign-compare
 program.exe: program.o CjAlfabetos.o Alfabeto.o CjMensajes.o Mensaje.o
 	g++ -o program.exe *.o
 
-program.o:
 CjAlfabetos.o: CjAlfabetos.cc CjAlfabetos.hh
 		g++ -c CjAlfabetos.cc $(OPCIONS)
 
