@@ -93,7 +93,8 @@ void CjMensajes::codificar_sustitucion_guardado(CjAlfabetos &ca) {
         string ida;
         itm->second.getAlfa(ida);
 
-        vector<string> matrix = ca.matrixById(ida);
+        vector<string> matrix;
+        ca.matrixById(ida,matrix);
 
         codifica(clave,texto,matrix);
         cout << '"' << texto << '"' << endl;
@@ -115,7 +116,8 @@ void CjMensajes::codificar_sustitucion(CjAlfabetos &ca) {
         cout << "error: el alfabeto no existe" << endl;
     }
     else{
-        vector<string> matrix = ca.matrixById(ida);
+        vector<string> matrix;
+        ca.matrixById(ida,matrix);
         codifica(clave,texto,matrix);
         cout << '"' << texto << '"' << endl;
     }
@@ -152,7 +154,8 @@ void CjMensajes::decodificar_sustitucion(CjAlfabetos &ca) {
         cout << "error: el alfabeto no existe" << endl;
     }
     else{
-        vector<string> matrix = ca.matrixById(ida);
+        vector<string> matrix;
+        ca.matrixById(ida,matrix);
         decodifica(clave,texto,matrix);
         cout << '"' << texto << '"' << endl;
     }

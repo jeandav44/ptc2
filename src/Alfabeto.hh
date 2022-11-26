@@ -17,7 +17,7 @@ public:
     /* CONSTRUCTORES */
     Alfabeto();
 
-    Alfabeto(string texto);
+    Alfabeto(const string &texto);
 
     ~Alfabeto();
 
@@ -28,10 +28,11 @@ public:
     void incrementa();
     void decrementa();
     int getNm();
-    vector<string> getMat();
+    //vector<string> getMat();
+    void getMat(vector<string> &mat);
     string getTexto();
 
     /* ENTRADA/SALIDA */
-    void escribir(bool esp);
+    void escribir(const bool &esp);
 };
 #endif

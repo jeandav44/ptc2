@@ -30,7 +30,9 @@ public:
     void decrementaI(const string &ida);
 
     void esEspecial(const string &texto, bool &especial);
-    vector<string> matrixById(string ida);
+
+    //vector<string> matrixById(string ida);
+    void matrixById(const string &ida, vector<string> &mat);
 
 
     /*ENTRADA/SALIDA*/

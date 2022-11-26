@@ -4,7 +4,7 @@ Alfabeto::Alfabeto(){};
 
 Alfabeto::~Alfabeto(){};
 
-Alfabeto::Alfabeto(string texto) {
+Alfabeto::Alfabeto(const string &texto) {
     this->texto = texto;
     nm = 0;
     iniMat(texto);
@@ -38,11 +38,14 @@ string Alfabeto::getTexto() {
     return this->texto;
 }
 
-vector<string> Alfabeto::getMat() {
+/*vector<string> Alfabeto::getMat() {
     return this->matrix;
+}*/
+void Alfabeto::getMat(vector<string> &mat) {
+    mat = this->matrix;
 }
 
-void Alfabeto::escribir(bool esp) {
+void Alfabeto::escribir(const bool &esp) {
     if(esp) {
         cout << "especial " << '[' << texto[0] << ".." << texto.back() << ']';
     }
