@@ -14,12 +14,12 @@ private:
 public:
     /* CONSTRUCTORES */
     Mensaje();
-    Mensaje(string ida, string texto);
+    Mensaje(const string &ida,const string &texto);
     ~Mensaje();
     /*MODIFICADORES*/
-    string getAlfa();
-    string getTexto();
-    void setTexto(string texto);
+    void  getAlfa(string &alfa);
+    void getTexto(string &texto);
+
     /* ENTRADA/SALIDA */
     void escribir();
 };

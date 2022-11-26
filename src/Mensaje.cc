@@ -4,7 +4,7 @@ Mensaje::Mensaje(){};
 
 Mensaje::~Mensaje(){};
 
-Mensaje::Mensaje(string ida, string texto) {
+Mensaje::Mensaje(const string &ida,const string &texto) {
     this->ida = ida;
     this->texto = texto;
 };
@@ -16,14 +16,10 @@ void Mensaje::escribir() {
     cout << '"' << texto << '"' <<  endl;
 }
 
-string Mensaje::getAlfa() {
-    return this->ida;
+void Mensaje::getAlfa(string &alfa) {
+    alfa = this->ida;
 }
 
-string Mensaje::getTexto() {
-    return this->texto;
-}
-
-void Mensaje::setTexto(string texto) {
-    this->texto = texto;
+void Mensaje::getTexto(string &texto) {
+    texto = this->texto;
 }

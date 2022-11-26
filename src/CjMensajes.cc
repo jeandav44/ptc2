@@ -61,7 +61,8 @@ void CjMensajes::borra_mensaje(CjAlfabetos &ca) {
     cout << ' ' << idm << endl;
     if(buscarId(idm)){
         auto itm = mmen.find(idm);
-        string ida = itm->second.getAlfa();
+        string ida;
+        itm->second.getAlfa(ida);
         mmen.erase(itm);
         cout << mmen.size() << endl;
         ca.decrementaI(ida);
@@ -86,8 +87,13 @@ void CjMensajes::codificar_sustitucion_guardado(CjAlfabetos &ca) {
     if(buscarId(idm)) {
         auto itm = mmen.find(idm);
 
-        string texto = itm->second.getTexto();
-        vector<string> matrix = ca.matrixById(itm->second.getAlfa());
+        string texto;
+        itm->second.getTexto(texto);
+
+        string ida;
+        itm->second.getAlfa(ida);
+
+        vector<string> matrix = ca.matrixById(ida);
 
         codifica(clave,texto,matrix);
         cout << '"' << texto << '"' << endl;
