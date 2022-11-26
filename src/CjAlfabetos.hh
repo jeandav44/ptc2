@@ -31,7 +31,6 @@ public:
 
     void esEspecial(const string &texto, bool &especial);
 
-    //vector<string> matrixById(string ida);
     void matrixById(const string &ida, vector<string> &mat);
 
 

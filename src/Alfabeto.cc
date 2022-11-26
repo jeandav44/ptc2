@@ -7,7 +7,7 @@ Alfabeto::~Alfabeto(){};
 Alfabeto::Alfabeto(const string &texto) {
     this->texto = texto;
     nm = 0;
-    iniMat(texto);
+    //iniMat(texto);
 };
 
 void Alfabeto::iniMat(string texto){
@@ -38,10 +38,8 @@ string Alfabeto::getTexto() {
     return this->texto;
 }
 
-/*vector<string> Alfabeto::getMat() {
-    return this->matrix;
-}*/
 void Alfabeto::getMat(vector<string> &mat) {
+    if(this->matrix.empty()) iniMat(this->texto);
     mat = this->matrix;
 }
 
