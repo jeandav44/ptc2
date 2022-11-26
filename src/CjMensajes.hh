@@ -8,6 +8,7 @@
 #include <iostream>
 #include <limits>
 #include "Mensaje.hh"
+#include "BinTree.hh"
 #include "CjAlfabetos.hh"
 
 class CjMensajes {
@@ -28,6 +29,9 @@ public:
     void codificar_sustitucion_guardado(CjAlfabetos &ca);
     void codificar_sustitucion(CjAlfabetos &ca);
     void decodificar_sustitucion(CjAlfabetos &ca);
+
+    //
+    void codificar_permutacion_guardado();
 
     //FUNCIONES DE OPT
     void codifica(const string &clave, string &texto, const vector<string> &matrix);

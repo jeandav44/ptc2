@@ -183,6 +183,24 @@ void CjMensajes::decodifica(const string &clave, string &texto,const vector<stri
     texto = deco;
 }
 
+void CjMensajes::codificar_permutacion_guardado() {
+    string idm;
+    auto itm = mmen.find(idm);
+    if(itm == mmen.end()) {
+        cout << "error: el mensaje no existe" << endl;
+    }
+    else{
+            BinTree<char> bt;
+            string texto;
+            itm->second.getTexto(texto);
+            int medio = texto.size()/2;
+            bt = createTree(medio,texto);
+    }
+}
+
+BinTree CjMensajes::createTree() {
+
+}
 
 int CjMensajes::getPos(const string &matrixF,const char &c) {
     int i = 0;

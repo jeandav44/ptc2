@@ -36,6 +36,9 @@ int main() {
         else if(op == "decodificar_sustitucion" or op == "ds") {
             cm.decodificar_sustitucion(ca);
         }
+        else if(op  =="codificar_permutacion_guardado" or op == "dsg") cm.codificar_permutacion_guardado();
+        else if(op  =="codificar_permutacion" or op == "cp") std::cout << "todo cp" << '\n';
+        else if(op  =="decodificar_permutacion" or op == "dp") std::cout << "todo dp" << '\n';
         cin >> op;
     }
     //return 0;
